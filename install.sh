@@ -3,23 +3,34 @@
 
 ##nvim
 # make directory containing nvim configuration and undo files.
-mkdir -p "$HOME/.config/nvim"
-mkdir -p "$HOME/.config/nvim/undo"
+mkdir -p "$XDG_CONFIG_HOME/nvim"
+mkdir -p "$XDG_CONFIG_HOME/nvim/undo"
 
 # create symbolic link
-ln -sf "$HOME/.files/nvim/init.vim" "$HOME/.config/nvim"
+ln -sf "$DOTFILES/nvim/init.vim" "$XDG_CONFIG_HOME/nvim"
 
 ##zsh
 # make directory containing zsh configuration and env variable files.
-mkdir -p "$HOME/.config/zsh"
+mkdir -p "$XDG_CONFIG_HOME/zsh"
 
 # create symlinks
-ln -sf "$HOME/.files/zsh/.zshenv" "$HOME"
-ln -sf "$HOME/.files/zsh/.zshrc" "$HOME/.config/zsh"
+ln -sf "$DOTFILES/zsh/.zshenv" "$HOME"
+ln -sf "$DOTFILES/zsh/.zshrc" "$XDG_CONFIG_HOME/zsh"
 
 # create alias soft link
-ln -sf "$HOME/.files/zsh/aliases" "$HOME/.config/zsh/aliases"
+ln -sf "$DOTFILES/zsh/aliases" "$XDG_CONFIG_HOME/zsh/aliases"
 
-rm -rf "$HOME/.config/zsh/external"
+rm -rf "$XDG_CONFIG_HOME/zsh/external"
 
-ln -sf "$HOME/.files/zsh/external" "$HOME/.config/zsh"
+ln -sf "$DOTFILES/zsh/external" "$XDG_CONFIG_HOME/zsh"
+
+##alacritty
+# create config file soft link
+ln -sf "$DOTFILES/alacritty/alacritty.yml" "$XDG_CONFIG_HOME/alacritty"
+
+############
+# Fonts ####
+############
+
+mkdir -p "$XDG_DATA_HOME"
+cp -rf "$DOTFILES/fonts" "$XDG_DATA_HOME"

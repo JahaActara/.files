@@ -1,15 +1,19 @@
+# $DOTFILES/zsh/.zshrc
+
+export LC_ALL=C
+
 source ~/.files/zsh/aliases
 
 autoload -Uz compinit; compinit
 
 # autocomplete hidden files
 _comp_options+=(globdots)
-
 source ~/.files/zsh/external/completion.zsh
 
 fpath=($ZDOTDIR/external $fpath)
 
-autoload -Uz prompt_purification_setup; prompt_purification_setup
+# This is where I put the prompt setup. set it as comment.
+autoload -Uz prompt_purification_setup && prompt_purification_setup
 
 # Push the current directory visited on to the stack
 setopt AUTO_PUSHD
@@ -17,6 +21,9 @@ setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 # Do not print the directory stack after using pushd or popd
 setopt PUSHD_SILENT
+
+setopt AUTO_PARAM_SLASH
+unsetopt CASE_GLOB
 
 # zsh with vi mode
 bindkey -v
@@ -48,6 +55,9 @@ if [ $(command -v "fzf") ]; then
     source /usr/share/fzf/completion.zsh
     source /usr/share/fzf/key-bindings.zsh
 fi
+
+# add julia's bin folder to path
+export PATH="$PATH:/home/jaha/julia/julia-1.6.0/bin"
 
 # zsh syntax highlighting(should be at the bottom of everything else
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
