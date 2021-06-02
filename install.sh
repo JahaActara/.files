@@ -1,5 +1,11 @@
 #!/bin/bash
 
+######
+# i3 #
+######
+
+rm -rf "$HOME/.config/i3"
+ln -s "$HOME/.files/i3" "$HOME/.config"
 
 ##nvim
 # make directory containing nvim configuration and undo files.
