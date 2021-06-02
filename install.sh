@@ -7,7 +7,10 @@
 rm -rf "$HOME/.config/i3"
 ln -s "$HOME/.files/i3" "$HOME/.config"
 
-##nvim
+########
+# nvim #
+########
+
 # make directory containing nvim configuration and undo files.
 mkdir -p "$XDG_CONFIG_HOME/nvim"
 mkdir -p "$XDG_CONFIG_HOME/nvim/undo"
@@ -15,7 +18,10 @@ mkdir -p "$XDG_CONFIG_HOME/nvim/undo"
 # create symbolic link
 ln -sf "$DOTFILES/nvim/init.vim" "$XDG_CONFIG_HOME/nvim"
 
-##zsh
+#######
+# zsh #
+#######
+
 # make directory containing zsh configuration and env variable files.
 mkdir -p "$XDG_CONFIG_HOME/zsh"
 
