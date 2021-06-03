@@ -1,7 +1,5 @@
 # $DOTFILES/zsh/.zshrc
 
-export LC_ALL=C
-
 source ~/.files/zsh/aliases
 
 autoload -Uz compinit; compinit
@@ -56,8 +54,14 @@ if [ $(command -v "fzf") ]; then
     source /usr/share/fzf/key-bindings.zsh
 fi
 
+# i3 startup
+if [ "$(tty)" = "/dev/tty1" ];
+then
+    pgrep i3 || exec startx "$XDG_CONFIG_HOME/X11/.xinitrc"
+fi
+
 # add julia's bin folder to path
 export PATH="$PATH:/home/jaha/julia/julia-1.6.0/bin"
 
-# zsh syntax highlighting(should be at the bottom of everything else
+# zsh syntax highlighting(should be at the bottom of everything else)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

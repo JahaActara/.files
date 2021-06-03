@@ -5,7 +5,7 @@
 ######
 
 rm -rf "$HOME/.config/i3"
-ln -s "$HOME/.files/i3" "$HOME/.config"
+ln -sf "$HOME/.files/i3" "$HOME/.config"
 
 ########
 # nvim #
@@ -36,13 +36,16 @@ rm -rf "$XDG_CONFIG_HOME/zsh/external"
 
 ln -sf "$DOTFILES/zsh/external" "$XDG_CONFIG_HOME/zsh"
 
-##alacritty
+#############
+# alacritty #
+#############
+
 # create config file soft link
 ln -sf "$DOTFILES/alacritty/alacritty.yml" "$XDG_CONFIG_HOME/alacritty"
 
-############
-# Fonts ####
-############
+#########
+# Fonts #
+#########
 
 mkdir -p "$XDG_DATA_HOME"
 cp -rf "$DOTFILES/fonts" "$XDG_DATA_HOME"
