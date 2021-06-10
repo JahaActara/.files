@@ -7,6 +7,20 @@
 rm -rf "$HOME/.config/i3"
 ln -sf "$HOME/.files/i3" "$HOME/.config"
 
+#########
+# dunst #
+#########
+
+mkdir -p "$XDG_CONFIG_HOME/dunst"
+ln -sf "$DOTFILES/dunst/dunstrc" "$XDG_CONFIG_HOME/dunst/dunstrc"
+
+########
+# tmux #
+########
+
+mkdir -p "$XDG_CONFIG_HOME/tmux"
+ln -sf "$DOTFILES/tmux/tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf"
+
 ########
 # nvim #
 ########
@@ -17,6 +31,21 @@ mkdir -p "$XDG_CONFIG_HOME/nvim/undo"
 
 # create symbolic link
 ln -sf "$DOTFILES/nvim/init.vim" "$XDG_CONFIG_HOME/nvim"
+
+# remove X11 .config files and create symlink from .files
+rm -rf "$XDG_CONFIG_HOME/X11"
+ln -s "$DOTFILES/X11" "$XDG_CONFIG_HOME"
+
+# install neovim plugin manager
+[ ! -f "$DOTFILES/nvim/autoload/plug.vim" ] \
+    && curl -fLo "$DOTFILES/nvim/autoload/plug.vim" --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+mkdir -p "$XDG_CONFIG_HOME/nvim/autoload"
+ln -sf "$DOTFILES/nvim/autoload/plug.vim" "$XDG_CONFIG_HOME/nvim/autoload/plug.vim"
+
+# install or update all the plugins
+nvim --noplugin +PlugUpdate +qa
 
 #######
 # zsh #

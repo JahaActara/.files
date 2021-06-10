@@ -3,6 +3,25 @@
 ""  NEOVIM SETTINGS
 
 " set relative line numbers
+
+call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
+    Plug 'chrisbra/csv.vim'
+    Plug 'moll/vim-bbye'
+    Plug 'simeji/winresizer'
+call plug#end()
+
+""""""""""""""""""""
+" chrisbra/csv.vim "
+""""""""""""""""""""
+autocmd BufRead,BufWritePost *.csv :%ArrangeColumn!
+autocmd BufWritePre *.csv :%UnArrangeColumn
+
+"""""""""""""""""""""
+" simeji/winresizer "
+"""""""""""""""""""""
+let g:winresizer_start_key = "<leader>w"
+
+
 set rnu
 
 " save undo-trees in files
