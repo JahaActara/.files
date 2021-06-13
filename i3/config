@@ -215,6 +215,17 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+#####################
+# Hardware keybinds #
+#####################
+
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+
+
+
+
 ##########
 # Colors #
 ##########
@@ -275,9 +286,9 @@ client.placeholder	#000000	#0c0c0c	$white2	#000000	#0c0c0c
 for_window [class="Alacritty*"] border pixel 1
 
 # Terminal scratchpad
-for_window [instance="alacritty_scratchpad"] move to scratchpad, border none
-bindsym $mod+Shift+t [instance="alacritty_scratchpad"] scratchpad show
-exec Alacritty -name alacritty_scratchpad
+exec --no-startup-id alacritty --class dropdown2 &
+bindsym $mod+i [instance="dropdown2"] scratchpad show, move position center
+for_window [instance="dropdown2"] floating enable, resize set 1440 900, move scratchpad
 
 # htop scratchpad
 for_window [instance="htop_scratchpad"] move to scratchpad, border none

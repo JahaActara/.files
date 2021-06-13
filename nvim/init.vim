@@ -8,6 +8,7 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
     Plug 'chrisbra/csv.vim'
     Plug 'moll/vim-bbye'
     Plug 'simeji/winresizer'
+    Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 """"""""""""""""""""
@@ -20,6 +21,9 @@ autocmd BufWritePre *.csv :%UnArrangeColumn
 " simeji/winresizer "
 """""""""""""""""""""
 let g:winresizer_start_key = "<leader>w"
+
+nnoremap <c-w>h <c-w>s
+
 
 
 set rnu
