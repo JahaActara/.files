@@ -1,16 +1,16 @@
-# $DOTFILES/zsh/.zshrc
-
+# Load Aliases #
 source ~/.files/zsh/aliases
 
 autoload -Uz compinit; compinit
 
 # autocomplete hidden files
 _comp_options+=(globdots)
+
 source ~/.files/zsh/external/completion.zsh
 
 fpath=($ZDOTDIR/external $fpath)
 
-# This is where I put the prompt setup. set it as comment.
+# This is where I put the prompt setup.
 autoload -Uz prompt_purification_setup && prompt_purification_setup
 
 # Push the current directory visited on to the stack
@@ -19,9 +19,6 @@ setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 # Do not print the directory stack after using pushd or popd
 setopt PUSHD_SILENT
-
-setopt AUTO_PARAM_SLASH
-unsetopt CASE_GLOB
 
 # zsh with vi mode
 bindkey -v
@@ -39,6 +36,7 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
+# Set clear command to CTRL+g instead of CTRL+l
 bindkey -r '^l'
 bindkey -r '^g'
 bindkey -s '^g' 'clear\n'
@@ -65,8 +63,16 @@ then
     pgrep i3 || exec startx "$XDG_CONFIG_HOME/X11/.xinitrc"
 fi
 
-# add julia's bin folder to path
-export PATH="$PATH:/home/jaha/julia/julia-1.6.0/bin"
+# Open and attach tmux automatically #
+#
+# I would like this, except that I don't want my scratchpad to sync with other terminals
+# I'm sure there is a simple solution to this
+
+# tmux attach &> /dev/null
+
+# if [[ ! $TERM =~ screen ]]; then
+#     exec tmux
+# fi
 
 # zsh syntax highlighting(should be at the bottom of everything else)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
