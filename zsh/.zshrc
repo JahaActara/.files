@@ -74,5 +74,7 @@ fi
 #     exec tmux
 # fi
 
+export PATH="$PATH:/home/jaha/julia/julia-1.6.2/bin"
+
 # zsh syntax highlighting(should be at the bottom of everything else)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

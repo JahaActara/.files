@@ -39,7 +39,7 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
     " Status Bar
 
     " Colorscheme
-    
+   Plug 'JuliaEditorSupport/julia-vim' 
 
 call plug#end()
 

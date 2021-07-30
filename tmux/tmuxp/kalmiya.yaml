@@ -1,0 +1,14 @@
+session_name: kalmiya
+start_directory: $HOME/projects/private/kalmiya
+
+windows:
+  - window_name: nvim kalmiya
+    layout: tiled
+    panes:
+      - nvim +FZF
+  - window_name: terms
+    layout: tiled
+    panes:
+      -
+      - ls -lah
+      - 
